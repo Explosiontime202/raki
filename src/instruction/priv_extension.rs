@@ -5,7 +5,7 @@ use core::fmt::{self, Display, Formatter};
 
 /// Privileged Insturctions.
 #[allow(non_camel_case_types)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum PrivOpcode {
     MRET,
     SRET,

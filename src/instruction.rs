@@ -23,7 +23,7 @@ use zicsr_extension::ZicsrOpcode;
 use zifencei_extension::ZifenceiOpcode;
 
 /// Instruction
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub struct Instruction {
     /// Opcode
     pub opc: OpcodeKind,
@@ -263,7 +263,7 @@ fn reg2str(rd_value: usize) -> &'static str {
 
 /// Instruction format
 /// See: [The RISC-V Instruction Set Manual: Volume II Version 20240411](https://github.com/riscv/riscv-isa-manual/releases/download/20240411/priv-isa-asciidoc.pdf) p.23,141
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum InstFormat {
     /// Regular format
     /// ```ignore
@@ -434,7 +434,7 @@ pub trait Opcode {
 }
 
 /// Extension type and Instruction name.
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum OpcodeKind {
     /// Base Integer Instruction Set
     BaseI(BaseIOpcode),
